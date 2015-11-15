@@ -17,7 +17,7 @@ They are to be space delimited. Refer to the [Google documentation](https://deve
 
 hwi_oauth:
     resource_owners:
-        any_name:
+        google:
             type:                google
             client_id:           <client_id>
             client_secret:       <client_secret>
@@ -32,7 +32,7 @@ If you want to use [offline access](https://developers.google.com/accounts/docs/
 
 hwi_oauth:
     resource_owners:
-        any_name:
+        google:
             type:                google
             client_id:           <client_id>
             client_secret:       <client_secret>
@@ -47,7 +47,7 @@ As an example consider following:
 # app/config/config.yml
 hwi_oauth:
     resource_owners:
-        any_name:
+        google:
             type:                google
             client_id:           <client_id>
             client_secret:       <client_secret>
