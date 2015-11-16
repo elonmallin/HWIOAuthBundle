@@ -4,8 +4,23 @@ Step 3: Configuring the security layer
 ### A) Have a user provider that implements `OAuthAwareUserProviderInterface`
 
 The bundle needs a service that is able to load users based on the user
-response of the oauth endpoint. If you have a custom service it should
-implement the interface: `HWI\Bundle\OAuthBundle\Security\Core\User\OAuthAwareUserProviderInterface`.
+response of the oauth endpoint. If you have a custom service (MyUserProvider) it should
+implement the interfaces:
+`HWI\Bundle\OAuthBundle\Security\Core\User\OAuthAwareUserProviderInterface`,
+`Symfony\Component\Security\Core\User\UserProviderInterface`.
+
+```yaml
+# app/config/services.yml
+services:
+    my.oauth_aware.user_provider.service:
+        class: MyUserProvider
+```
+```yaml
+# app/config/security.yml
+providers:
+    hwi:
+        id: my.oauth_aware.user_provider.service
+```
 
 The HWIOAuthBundle also ships with three default implementations:
 
